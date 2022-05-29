@@ -67,33 +67,34 @@ const pokemonRepository = (function () {
 
   function showModal(pokemon) {
     // Get Node Elements
-    let modalBody = $('.modal-body');
-    let modalTitle = $('.modal-title');
-
+    let modalBody = document.querySelector('.modal-body');
+    let modalTitle = document.querySelector('.modal-title');
+    
     // Clear previous content
-    modalTitle.empty();
-    modalBody.empty();
+    modalBody.innerHTML = '';
+    modalTitle.innerHTML ='';
 
     // Create Pokemon Elements
-    let pokemonName = $(`<h1>${pokemon.name}</h1>`);
-    let pokemonImage = $(
-      `<img class="modal-img mx-auto" src="${pokemon.svgUrl}" alt="Drawing of Pokemon ${pokemon.name}">`
-    );
-    let pokemonHeight = $(
-      `<p class="ml-4 mt-3 mb-0">Height: ${pokemon.height}</p>`
-    );
-    let pokemonWeight = $(`<p class="ml-4 mb-0">Weight: ${pokemon.weight}</p>`);
-    let pokemonTypes = $(
-      `<p class="ml-4">Types: ${pokemon.types.join(', ')}</p>`
+    let pokemonName = document.createElement('h1');
+    pokemonName.innerText = pokemon.name;
 
-    );
+    let pokemonImage = document.createElement('img');
+    pokemonImage.classList.add('modal-img,mx-auto');
+    pokemonImage.setAttribute('src', pokemon.svgUrl);
 
-    // Append Pokemon Elements
+    let pokemonHeight = document.createElement('p');
+    pokemonHeight.classList.add('ml-4,mt-3,mb-0');
+    pokemonHeight.innerText ='Height: '+ pokemon.height;
+
+    let pokemonWeight = document.createElement('p');
+    pokemonWeight.classList.add('ml-4,mb-0');
+    pokemonWeight.innerText = 'Weight: ' + pokemon.weight;
+
+    // Append Pokemon Elements to modal body and modal title
     modalTitle.append(pokemonName);
     modalBody.append(pokemonImage);
     modalBody.append(pokemonHeight);
     modalBody.append(pokemonWeight);
-    modalBody.append(pokemonTypes);
   }
 
   function loadList() {
