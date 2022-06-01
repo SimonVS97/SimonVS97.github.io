@@ -12,7 +12,7 @@ Simply open this link: https://simonvs97.github.io/
 * CSS
 * Boostrap v4.3.1
 * JavaScript
-* JQuery 3.5.1
+* JQuery v3.5.1
 
 ## Which API the project uses
 The API used in this Web App is the Poké API. An external API that delivers detailed information on pokemons.
